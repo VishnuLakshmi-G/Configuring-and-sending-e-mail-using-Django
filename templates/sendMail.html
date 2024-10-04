@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Sent</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        p {
+            font-size: 18px;
+        }
+        .success-message {
+            background-color: #e7f3e7;
+            padding: 15px;
+            border-radius: 5px;
+            color: #3c763d;
+            margin-top: 20px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Email Status</h1>
+
+    {% if success %}
+    <div class="success-message">
+        <p>Mail has been successfully sent to <strong>vishnulakshmig2004@gmail.com</strong>.</p>
+    </div>
+    {% else %}
+    <p>Click the button below to send an email.</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn">Send Email</button>
+    </form>
+    {% endif %}
+</div>
+
+</body>
+</html>
